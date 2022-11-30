@@ -6,11 +6,11 @@ const logoutButton = document.getElementById('logout');
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const formData = new FormData();
+    const formData = new FormData(form);
 
-    const name = formData.get('bunny-name');
     const familyId = formData.get('family-id');
-
+    const name = formData.get('bunny-name');
+    console.log(familyId, name);
     // get the name and family id from the form
     await createBunny({ name: name, family_id: familyId });
     // use createBunny to create a bunny with this name and family id
