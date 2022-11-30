@@ -19,16 +19,15 @@ export async function getFamilies() {
 }
 
 export async function deleteBunny(id) {
-    // delete a single bunny using the id argument
-    // return checkError(response);
+    const response = await client.from('fuzzy_bunnies').delete().match({ id: id }).single();
+    return checkError(response);
 }
 
 export async function createBunny(bunny) {
-    console.log(bunny);
     const response = await client
         .from('fuzzy_bunnies')
         .insert({ ...bunny, user_id: client.auth.session().user.id });
-    console.log(response);
+
     return checkError(response);
 }
 
