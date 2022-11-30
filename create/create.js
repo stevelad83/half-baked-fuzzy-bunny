@@ -16,6 +16,7 @@ form.addEventListener('submit', async (e) => {
     // use createBunny to create a bunny with this name and family id
 
     form.reset();
+    window.location.replace('../families');
 });
 
 window.addEventListener('load', async () => {
